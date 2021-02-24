@@ -1,0 +1,25 @@
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+@model IEnumerable<Orphanage.Models.HomeEvent>
+                      <div class="container">
+                          <div>
+                              <h4 class="text-center">Choose Event:<span class="fa fa-heart" style="color:red;"></span></h4>
+                          </div>
+                          <form method="post" asp-controller="Admin" asp-action="AddEvent">
+                              <div class="form-group">
+                                  <select class="form-control" name="event_name">
+                                      @foreach (Orphanage.Models.HomeEvent r in Model) {
+                                      <option value="@r.event_name">@r.event_name</option>
+				               }
+                                  </select>
+                              </div>
+                              @if (@HttpContextAccessor.HttpContext.Session.GetString("email") != null)
+                          {
+                              <div class="form-group">
+                                  <input type="text" class="form-control" name="email" disabled placeholder="name" value="@HttpContextAccessor.HttpContext.Session.GetString("email") ">
+                              </div>
+                          }
+</form>
+
+                      </div>
+

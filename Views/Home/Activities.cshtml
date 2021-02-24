@@ -1,0 +1,31 @@
+@model IEnumerable<Orphanage.Models.HomeEvent>
+    <div class="container">
+        <div>
+            <h4 class="text-center">Activities you can donate your time for:<span class="fa fa-heart" style="color:red;"></span></h4>
+        </div>
+        <table id="table_id" class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Event Name</th>
+                    <th>Event Date</th>
+                    <th>Time of Event</th>
+                    <th>Discription</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Orphanage.Models.HomeEvent r in Model) {
+                <tr>
+                    <td>@r.event_name</td>
+                    <td>@r.event_date</td>
+                    <td>@r.time</td>
+                    <td>@r.discription</td>
+                    <td>
+                            <a class="nav-link text-dark bg-info" asp-area="" asp-controller="Admin" asp-action="Volunteer">Volunteer</a>
+                    </td>
+                </tr>
+				}
+            </tbody>
+        </table>
+    </div>
+

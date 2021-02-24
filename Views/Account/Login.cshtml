@@ -1,0 +1,19 @@
+@model Login
+<div class="m-1 p-1">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <h4>Please login:</h4>
+    <form asp-action="Login" asp-controller="Account" method="post">
+        <input type="hidden" asp-for="ReturnUrl" />
+        <div class="form-group">
+            <label>Email:</label>
+            <div asp-validation-for="email" class="text-danger"></div>
+            <input asp-for="email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label >Password:</label>
+            <div asp-validation-for="password" class="text-danger"></div>
+            <input asp-for="password" type="password" class="form-control" />
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+@model IEnumerable<Orphanage.Models.User>
+    <div class="container">
+        <div>
+            <h4 class="text-center">A list of Volunteers <span class="fa fa-heart" style="color:red;"></span></h4>
+        </div>
+        <table id="table_id" class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Orphanage.Models.User r in Model) {
+                <tr>
+                    <td>@r.name</td>
+                    <td>@r.surname</td>
+                    <td>@r.email</td>
+                    <td>@r.created_at</td>
+                </tr>
+				}
+            </tbody>
+        </table>
+    </div>
+
